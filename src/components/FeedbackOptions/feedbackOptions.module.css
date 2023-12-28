@@ -1,0 +1,30 @@
+.list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.item {
+  margin: 0 10px;
+}
+
+.button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.342);
+  background-color: #45a049;
+}

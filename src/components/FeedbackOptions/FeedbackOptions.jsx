@@ -1,44 +1,23 @@
-import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './feedbackOptions.module.css';
 
-class FeedbackOptions extends Component {
-  state = {};
-  render() {
-    return (
-      <ul className={css.list}>
-        <li className={css.item}>
-          <button
-            className={css.button}
-            id="good"
-            type="button"
-            onClick={() => this.props.handleFeedback('good')}
-          >
-            Good
-          </button>
-        </li>
-        <li className={css.item}>
-          <button
-            className={css.button}
-            id="neutral"
-            type="button"
-            onClick={() => this.props.handleFeedback('neutral')}
-          >
-            Neutral
-          </button>
-        </li>
-        <li className={css.item}>
-          <button
-            className={css.button}
-            id="bad"
-            type="button"
-            onClick={() => this.props.handleFeedback('bad')}
-          >
-            Bad
-          </button>
-        </li>
-      </ul>
-    );
-  }
+export default function FeedbackOptions({ options, handleFeedback }) {
+  const elements = options.map(key => (
+    <li className={css.item} key={key}>
+      <button
+        className={css.button}
+        id={key}
+        type="button"
+        onClick={() => handleFeedback(key)}
+      >
+        {key}
+      </button>
+    </li>
+  ));
+  return <ul className={css.list}>{elements}</ul>;
 }
 
-export default FeedbackOptions;
+FeedbackOptions.propTypes = {
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handleFeedback: PropTypes.func.isRequired,
+};
